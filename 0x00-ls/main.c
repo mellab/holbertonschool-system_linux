@@ -9,8 +9,8 @@
  */
 int main(int argc, char *argv[])
 {
-	(void) argc;
 	size_t status;
+	(void) argc;
 
 	status = ls(argv);
 	return (status);
@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
  * @i: 1st index
  * @j: 2nd index
  */
+
 void choptions(struct option **op, char *argv[], size_t i, size_t j)
 {
 	switch (argv[i][j])
