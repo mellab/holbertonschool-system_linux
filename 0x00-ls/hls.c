@@ -107,7 +107,7 @@ void parse_args(char *argv[], size_t *fc, size_t *dc, size_t *erc,
 	for (i = 1; argv[i]; ++i)
 		if (*argv[i] == '-')
 			for (j = 1; argv[i][j]; ++j)
-                choptions(&op, argv, i, j);
+				choptions(&op, argv, i, j);
 	for (i = 1; argv[i]; ++i)
 		if (lstat(argv[i], &sb) == 0)
 		{

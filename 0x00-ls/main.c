@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
 /**
  * choptions - Check options
- * @options: boolean structure
+ * @op: boolean structure
  * @argv: argument vector for options
  * @i: 1st index
  * @j: 2nd index
@@ -59,7 +59,7 @@ void choptions(struct option **op, char *argv[], size_t i, size_t j)
 
 /**
  * initialoptions - Initializes options structure
- * @options: structure to initiate
+ * @op: structure to initiate
  */
 
 void initialoptions(struct option **op)
@@ -91,7 +91,7 @@ void clearout(struct content *entries, struct content *dir, struct option *opt)
 }
 
 /**
- * errormsgs - prints error messages
+ * error - prints error messages
  * @arg: array with invalid argument
  * @opt: invalid option
  * @outlet: exit
