@@ -1,4 +1,4 @@
-include "header.h"
+#include "header.h"
 
 /**
  * main - entry point to ls function
@@ -23,36 +23,36 @@ int main(int argc, char *argv[])
  * @i: 1st index
  * @j: 2nd index
  */
-void choptions(struct option **options, char *argv[], size_t i, size_t j)
+void choptions(struct option **op, char *argv[], size_t i, size_t j)
 {
 	switch (argv[i][j])
 	{
 		case 'r':
-			(*options)->reverse = true;
+			(*op)->reverse = true;
 			break;
 		case 'R':
-			(*options)->recursive = true;
+			(*op)->recursive = true;
 			break;
 		case 'S':
-			(*options)->sortingbysize = true;
+			(*op)->sortingbysize = true;
 			break;
 		case 't':
-			(*options)->sortingbytime = true;
+			(*op)->sortingbytime = true;
 			break;
 		case 'l':
-			(*options)->longformat = true;
+			(*op)->longformat = true;
 			break;
 		case '1':
-			(*options)->pereachline = true;
+			(*op)->pereachline = true;
 			break;
 		case 'A':
-			(*options)->hiddennav = true;
+			(*op)->hiddennav = true;
 			break;
 		case 'a':
-			(*options)->allhidden = true;
+			(*op)->allhidden = true;
 			break;
 		default:
-				cleanup(NULL, NULL, *options);
+				clearout(NULL, NULL, *op);
 				error(NULL, argv[i][j], true, false);
 	}
 }
@@ -62,16 +62,16 @@ void choptions(struct option **options, char *argv[], size_t i, size_t j)
  * @options: structure to initiate
  */
 
-void initialoptions(struct option **options)
+void initialoptions(struct option **op)
 {
-	(*options)->reverse = false;
-	(*options)->recursive = false;
-	(*options)->sortingbysize = false;
-	(*options)->sortingbytime = false;
-	(*options)->longformat = false;
-	(*options)->pereachline = false;
-	(*options)->hiddennav = false;
-	(*options)->allhidden = false;
+	(*op)->reverse = false;
+	(*op)->recursive = false;
+	(*op)->sortingbysize = false;
+	(*op)->sortingbytime = false;
+	(*op)->longformat = false;
+	(*op)->pereachline = false;
+	(*op)->hiddennav = false;
+	(*op)->allhidden = false;
 }
 
 /**
@@ -99,7 +99,7 @@ void clearout(struct content *entries, struct content *dir, struct option *opt)
  *
  * Return: error status
  */
-size_t errormsgs(char *arg, char opt, bool outlet, bool printed)
+size_t error(char *arg, char opt, bool outlet, bool printed)
 {
 	char buf[256];
 
@@ -107,7 +107,7 @@ size_t errormsgs(char *arg, char opt, bool outlet, bool printed)
 		printf("\n");
 	if (!arg)
 	{
-		frpintf(stderr, "hls: invalid option -- '%c'\n", opt);
+		fprintf(stderr, "hls: invalid option -- '%c'\n", opt);
 		fprintf(stderr, "Try 'hls --help' for more information.\n");
 	}
 	else if (errno == ENOENT)

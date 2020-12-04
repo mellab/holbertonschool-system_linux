@@ -70,8 +70,8 @@ size_t ls(char *argv[]);
 
 /* Main */
 
-void choptions(struct option **options, char *argv[], size_t i, size_t j);
-void initialoptions(struct option **options);
+void choptions(struct option **op, char *argv[], size_t i, size_t j);
+void initialoptions(struct option **op);
 void clearout(struct content *entries, struct content *dir,
 		struct option *opt);
 size_t error(char *arg, char opt, bool outlet, bool printed);
