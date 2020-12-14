@@ -212,4 +212,7 @@ fabric.properties
 
 .idea/
 
+#main files
+*-main.c
+
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains,c,emacs
