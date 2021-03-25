@@ -13,7 +13,7 @@
 
 int main(int argc, char **argv, char **env)
 {
-	char *av[] = = {"./hobjdump", "-sf", "", NULL};
+	char *av[] = {"./hobjdump", "-sf", "", NULL};
 
 	(void)argc;
 	av[2] = argv[1];
@@ -22,5 +22,5 @@ int main(int argc, char **argv, char **env)
 		perror("execv");
 		return (EXIT_FAILURE);
 	}
-	return (EXIT_SUCESS);
+	return (EXIT_SUCCESS);
 }
